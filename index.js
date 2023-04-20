@@ -76,9 +76,7 @@ window.addEventListener("DOMContentLoaded", () => {
       }
       // Convert the response data to JSON
       const data = await response.json();
-      // Map over the photos in the response data and return an array of medium-sized image URLs
-      console.log(data.photos);
-      // Return the array of medium-sized image URLs
+      // return the data to the other function
       return data.photos;
     } catch (error) {
       // Log any errors that occur and re-throw them
@@ -97,8 +95,6 @@ window.addEventListener("DOMContentLoaded", () => {
     // Fetch the specified number of images for the current page
     const imgSrcArr = await fetchImages(numImagesToAdd, page);
 
-    // Log the retrieved image URLs
-    console.log(imgSrcArr);
     // If there is no valid data returned or it is not an array, log an error and exit the function
     if (!imgSrcArr || !Array.isArray(imgSrcArr)) {
       console.error("Invalid image data");

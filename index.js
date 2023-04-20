@@ -3,8 +3,7 @@ const container = document.querySelector(".container");
 const search = document.querySelector(`#search_bar`);
 const searchDiv = document.querySelector(`.search`);
 const images = document.querySelectorAll(`.image1`);
-const downloadLinks = document.querySelectorAll(`.link`);
-const showMoreBtn = document.querySelector(".show_more_btn");
+const downloadLinks = document.getElementsByTagName(`a`);
 
 // this function shows the image after the pic finishes loading
 function displayImage() {
@@ -13,7 +12,7 @@ function displayImage() {
     image.style.display = "none";
   });
 
-  const cards = document.querySelectorAll(".cards_load_extreme_descripion");
+  const cards = document.querySelectorAll(".cards_descripion");
   cards.forEach((card) => {
     card.style.display = "block";
   });
@@ -129,7 +128,6 @@ window.addEventListener("DOMContentLoaded", () => {
       h1.className = "photographer";
       const aLink = document.createElement("a");
       aLink.href = imgSrc.src.original;
-      aLink.className = "link";
       aLink.download = "";
       aLink.target = "_blank";
       const linkBtn = document.createElement("button");

@@ -134,7 +134,7 @@ window.addEventListener("DOMContentLoaded", () => {
       const card = document.createElement("div");
       card.className = "card";
       const cardDescription = document.createElement("div");
-      cardDescription.className = "card_description";
+      cardDescription.className = "card_description1";
       //Create an overlay container
       const overlay = document.createElement("div");
       overlay.className = "overlay";
@@ -239,7 +239,7 @@ window.addEventListener("DOMContentLoaded", () => {
       const card = document.createElement("div");
       card.className = "card";
       const cardDescription = document.createElement("div");
-      cardDescription.className = "card_description";
+      cardDescription.className = "card_description1";
       //Create an overlay container
       const overlay = document.createElement("div");
       overlay.className = "vid_overlay";
@@ -253,6 +253,13 @@ window.addEventListener("DOMContentLoaded", () => {
         console.log("before added");
         container.appendChild(vidContainer);
         console.log("added vidContainer to container");
+      });
+
+      vid.addEventListener("mouseover", () => {
+        vid.play();
+      });
+      vid.addEventListener("mouseout", () => {
+        vid.pause();
       });
 
       // Append the image element to the container element

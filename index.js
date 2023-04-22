@@ -169,7 +169,7 @@ window.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  /* Video Part */
+  /*******************  Video Part ****************/
 
   // This function fetches videos from the Pexels API based on a given page size and page number
   async function fetchVideos(pageSize, page) {
@@ -242,7 +242,7 @@ window.addEventListener("DOMContentLoaded", () => {
       cardDescription.className = "card_description";
       //Create an overlay container
       const overlay = document.createElement("div");
-      overlay.className = "overlay";
+      overlay.className = "vid_overlay";
       const p = document.createElement("p");
       p.textContent = "Video by:";
       const h1 = document.createElement("h1");

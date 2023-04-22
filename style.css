@@ -440,7 +440,7 @@ select option {
   top: 20px;
   bottom: 100px;
   width: 100%;
-  height: 100%;
+  height: 300px;
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
@@ -475,23 +475,23 @@ select option {
   /* cursor: pointer; */
 }
 
-.overlay:hover {
+.vid_overlay:hover {
   opacity: 0;
 }
 
-.overlay h1 {
+.vid_overlay h1 {
   text-align: center;
   color: #ffffff;
   margin: 0;
   font-size: 20px;
   margin-bottom: 20px;
 }
-.overlay p {
+.vid_overlay p {
   text-align: center;
   margin: 0;
   color: #ffffff;
 }
-.overlay button {
+.vid_overlay button {
   text-align: center;
   margin-top: 20px;
   transform: translate(130px, -20px);
@@ -507,17 +507,17 @@ select option {
   transition: background-color 0.2s ease;
 }
 
-.overlay i {
+.vid_overlay i {
   margin: auto;
   font-size: 1rem;
   text-align: center;
   color: rgb(255, 255, 255);
 }
-.overlay > * {
+.vid_overlay > * {
   transform: translateY(-150px);
   transition: transform 0.3s ease;
 }
-.overlay:hover > * {
+.vid_overlay:hover > * {
   transform: translateY(0);
 }
 

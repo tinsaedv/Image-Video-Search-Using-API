@@ -39,9 +39,9 @@ window.addEventListener("DOMContentLoaded", () => {
     let selectedOption = select.value;
     if (selectedOption === "images") {
       container.innerHTML = "";
-      createImages(6);
+      createImages(10);
     } else if (selectedOption === "videos") {
-      createVideos(6);
+      createVideos(10);
       container.innerHTML = "";
     }
   });
@@ -52,9 +52,9 @@ window.addEventListener("DOMContentLoaded", () => {
         container.innerHTML = "";
         let selectedOption = select.value;
         if (selectedOption === "videos") {
-          createVideos(6);
+          createVideos(10);
         } else if (selectedOption === "images") {
-          createImages(6);
+          createImages(10);
         }
         searchDiv.classList.add("slider");
         container.classList.add("show");

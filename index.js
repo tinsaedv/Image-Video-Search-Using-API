@@ -1,5 +1,5 @@
 //get the html elements with selectors
-const container = document.querySelector(".container");
+const container = document.querySelector('.container');
 const search = document.querySelector(`#search_bar`);
 const searchDiv = document.querySelector(`.search`);
 const images = document.querySelectorAll(`.image1`);
@@ -10,67 +10,67 @@ const select = document.querySelector(`select`);
 function hideImage() {
   const images = document.querySelectorAll(`img`);
   images.forEach((image) => {
-    image.style.display = "none";
+    image.style.display = 'none';
   });
 
-  const cards = document.querySelectorAll(".cards_descripion");
+  const cards = document.querySelectorAll('.cards_descripion');
   cards.forEach((card) => {
-    card.style.display = "block";
+    card.style.display = 'block';
   });
 }
 // this function hides the image until the pic finishes loading
 function displayImage() {
   const images = document.querySelectorAll(`img`);
   images.forEach((image) => {
-    image.style.display = "block";
+    image.style.display = 'block';
   });
-  const cards = document.querySelectorAll(".card_load_extreme_descripion");
+  const cards = document.querySelectorAll('.card_load_extreme_descripion');
   cards.forEach((card) => {
-    card.style.display = "none";
+    card.style.display = 'none';
   });
 }
 
 window.onload = function () {
   hideImage();
 };
-window.addEventListener("DOMContentLoaded", () => {
-  select.addEventListener("change", () => {
-    console.log("Select element was changed");
+window.addEventListener('DOMContentLoaded', () => {
+  select.addEventListener('change', () => {
+    console.log('Select element was changed');
     let selectedOption = select.value;
-    if (selectedOption === "images") {
-      container.innerHTML = "";
+    if (selectedOption === 'images') {
+      container.innerHTML = '';
       createImages(10);
-    } else if (selectedOption === "videos") {
+    } else if (selectedOption === 'videos') {
       createVideos(10);
-      container.innerHTML = "";
+      container.innerHTML = '';
     }
   });
 
-  search.addEventListener("keyup", (e) => {
-    if (e.key === "Enter") {
-      if (search.value !== "") {
-        container.innerHTML = "";
+  search.addEventListener('keyup', (e) => {
+    if (e.key === 'Enter') {
+      if (search.value !== '') {
+        container.innerHTML = '';
         let selectedOption = select.value;
-        if (selectedOption === "videos") {
+        if (selectedOption === 'videos') {
           createVideos(10);
-        } else if (selectedOption === "images") {
+        } else if (selectedOption === 'images') {
           createImages(10);
         }
-        searchDiv.classList.add("slider");
-        container.classList.add("show");
+        searchDiv.classList.add('slider');
+        container.classList.add('show');
       } else {
-        container.classList.remove("show");
-        searchDiv.classList.remove("slider");
+        container.classList.remove('show');
+        searchDiv.classList.remove('slider');
       }
     }
   });
 
-  window.addEventListener("scroll", function () {
+  window.addEventListener('scroll', function () {
     if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
       let selectedOption = select.value;
-      if (selectedOption === "videos") {
+      if (selectedOption === 'videos') {
         createVideos(6);
-      } else if (selectedOption === "images") {
+      } else if (selectedOption === 'images') {
         createImages(6);
       }
     }
@@ -80,7 +80,7 @@ window.addEventListener("DOMContentLoaded", () => {
   async function fetchImages(pageSize, page) {
     try {
       // API key for authorization purposes
-      const apiKey = "h2GJPiMjw5uymsoNtcmBCDvVGksedNJ8aTvuyLkRtjMotcT8BWfqk7pb";
+      const apiKey = '';
       // Call the Pexels API using the provided URL and headers, with the given page size and page number
       const response = await fetch(
         `https://api.pexels.com/v1/search?query=${search.value}&per_page=${pageSize}&page=${page}`,
@@ -93,7 +93,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
       // If the response from the API is not okay, throw an error
       if (!response.ok) {
-        throw new Error("Network response was not ok");
+        throw new Error('Network response was not ok');
       }
       // Convert the response data to JSON
       const data = await response.json();
@@ -110,7 +110,7 @@ window.addEventListener("DOMContentLoaded", () => {
   async function createImages(numImagesToAdd) {
     displayImage();
     // Get the container element
-    const container = document.querySelector(".container");
+    const container = document.querySelector('.container');
     // Determine which page of images to fetch based on how many images are currently displayed in the container
     const page = Math.ceil(container.children.length / numImagesToAdd) + 1;
     // Fetch the specified number of images for the current page
@@ -118,43 +118,43 @@ window.addEventListener("DOMContentLoaded", () => {
 
     // If there is no valid data returned or it is not an array, log an error and exit the function
     if (!imgSrcArr || !Array.isArray(imgSrcArr)) {
-      console.error("Invalid image data");
+      console.error('Invalid image data');
       return;
     }
     // Add each image to the container element
     imgSrcArr.forEach((imgSrc) => {
       // Create a container div for the image
-      const imgContainer = document.createElement("div");
-      imgContainer.classList.add("img-container");
+      const imgContainer = document.createElement('div');
+      imgContainer.classList.add('img-container');
       // Create a new Image element with the retrieved URL and set its alt text
       const img = new Image();
       img.src = imgSrc.src.medium;
-      img.alt = "Image";
+      img.alt = 'Image';
       //Create loader container
-      const card = document.createElement("div");
-      card.className = "card";
-      const cardDescription = document.createElement("div");
-      cardDescription.className = "card_description1";
+      const card = document.createElement('div');
+      card.className = 'card';
+      const cardDescription = document.createElement('div');
+      cardDescription.className = 'card_description1';
       //Create an overlay container
-      const overlay = document.createElement("div");
-      overlay.className = "overlay";
-      const p = document.createElement("p");
-      p.textContent = "Photo by:";
-      const h1 = document.createElement("h1");
-      h1.textContent = imgSrc.photographer || "Unknown";
-      h1.className = "photographer";
-      const aLink = document.createElement("a");
+      const overlay = document.createElement('div');
+      overlay.className = 'overlay';
+      const p = document.createElement('p');
+      p.textContent = 'Photo by:';
+      const h1 = document.createElement('h1');
+      h1.textContent = imgSrc.photographer || 'Unknown';
+      h1.className = 'photographer';
+      const aLink = document.createElement('a');
       aLink.href = imgSrc.src.original;
-      aLink.download = "";
-      aLink.target = "_blank";
-      const linkBtn = document.createElement("button");
-      const icon = document.createElement("i");
-      icon.className = "fa-solid fa-download";
+      aLink.download = '';
+      aLink.target = '_blank';
+      const linkBtn = document.createElement('button');
+      const icon = document.createElement('i');
+      icon.className = 'fa-solid fa-download';
       aLink.appendChild(linkBtn);
       linkBtn.appendChild(icon);
 
       // Once the image is loaded, append it to the container element
-      img.addEventListener("load", () => {
+      img.addEventListener('load', () => {
         container.appendChild(imgContainer);
       });
 
@@ -175,7 +175,7 @@ window.addEventListener("DOMContentLoaded", () => {
   async function fetchVideos(pageSize, page) {
     try {
       // API key for authorization purposes
-      const apiKey = "h2GJPiMjw5uymsoNtcmBCDvVGksedNJ8aTvuyLkRtjMotcT8BWfqk7pb";
+      const apiKey = '';
       // Call the Pexels API using the provided URL and headers, with the given page size and page number
       const response = await fetch(
         `https://api.pexels.com/videos/search?query=${search.value}&per_page=${pageSize}&page=${page}`,
@@ -188,7 +188,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
       // If the response from the API is not okay, throw an error
       if (!response.ok) {
-        throw new Error("Network response was not ok");
+        throw new Error('Network response was not ok');
       }
       // Convert the response data to JSON
       const data = await response.json();
@@ -205,60 +205,60 @@ window.addEventListener("DOMContentLoaded", () => {
   // This function creates a specified number of image elements within a container element
   async function createVideos(numVideosToAdd) {
     displayImage();
-    console.log("createVideos function executing...");
+    console.log('createVideos function executing...');
     // hideImage();
     // Get the container element
-    const container = document.querySelector(".container");
+    const container = document.querySelector('.container');
     // Determine which page of images to fetch based on how many images are currently displayed in the container
     const page = Math.ceil(container.children.length / numVideosToAdd) + 1;
     // Fetch the specified number of images for the current page
     const vidSrcArr = await fetchVideos(numVideosToAdd, page);
-    console.log("vidSrcArr:", vidSrcArr);
+    console.log('vidSrcArr:', vidSrcArr);
     // If there is no valid data returned or it is not an array, log an error and exit the function
     if (!vidSrcArr || !Array.isArray(vidSrcArr)) {
-      console.error("Invalid Video data");
+      console.error('Invalid Video data');
       return;
     }
     // Add each image to the container element
     vidSrcArr.forEach((vidSrc) => {
-      console.log("adding video to container:", vidSrc);
+      console.log('adding video to container:', vidSrc);
       // Create a container div for the image
-      const vidContainer = document.createElement("div");
-      vidContainer.classList.add("vid-container");
+      const vidContainer = document.createElement('div');
+      vidContainer.classList.add('vid-container');
       // Create a new Image element with the retrieved URL and set its alt text
-      const vid = document.createElement("video");
+      const vid = document.createElement('video');
       vid.controls = true;
       const vidData = vidSrc.video_files;
       vidData.forEach((video) => {
-        const source = document.createElement("source");
+        const source = document.createElement('source');
         source.src = video.link;
         vid.appendChild(source);
       });
 
       //Create loader container
-      const card = document.createElement("div");
-      card.className = "card";
-      const cardDescription = document.createElement("div");
-      cardDescription.className = "card_description1";
+      const card = document.createElement('div');
+      card.className = 'card';
+      const cardDescription = document.createElement('div');
+      cardDescription.className = 'card_description1';
       //Create an overlay container
-      const overlay = document.createElement("div");
-      overlay.className = "vid_overlay";
-      const p = document.createElement("p");
-      p.textContent = "Video by:";
-      const h1 = document.createElement("h1");
+      const overlay = document.createElement('div');
+      overlay.className = 'vid_overlay';
+      const p = document.createElement('p');
+      p.textContent = 'Video by:';
+      const h1 = document.createElement('h1');
       h1.textContent = vidSrc.user.name;
-      h1.className = "photographer";
+      h1.className = 'photographer';
       // Once the image is loaded, append it to the container element
-      vid.addEventListener("loadeddata", () => {
-        console.log("before added");
+      vid.addEventListener('loadeddata', () => {
+        console.log('before added');
         container.appendChild(vidContainer);
-        console.log("added vidContainer to container");
+        console.log('added vidContainer to container');
       });
 
-      vid.addEventListener("mouseover", () => {
+      vid.addEventListener('mouseover', () => {
         vid.play();
       });
-      vid.addEventListener("mouseout", () => {
+      vid.addEventListener('mouseout', () => {
         vid.pause();
       });
 

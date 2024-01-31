@@ -40,8 +40,8 @@ window.addEventListener('DOMContentLoaded', () => {
       container.innerHTML = '';
       createImages(10);
     } else if (selectedOption === 'videos') {
-      createVideos(10);
       container.innerHTML = '';
+      createVideos(10);
     }
   });
 
@@ -51,8 +51,10 @@ window.addEventListener('DOMContentLoaded', () => {
         container.innerHTML = '';
         let selectedOption = select.value;
         if (selectedOption === 'videos') {
+          container.innerHTML = '';
           createVideos(10);
         } else if (selectedOption === 'images') {
+          container.innerHTML = '';
           createImages(10);
         }
         searchDiv.classList.add('slider');

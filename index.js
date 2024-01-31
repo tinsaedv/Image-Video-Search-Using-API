@@ -35,7 +35,6 @@ window.onload = function () {
 };
 window.addEventListener('DOMContentLoaded', () => {
   select.addEventListener('change', () => {
-    console.log('Select element was changed');
     let selectedOption = select.value;
     if (selectedOption === 'images') {
       container.innerHTML = '';
@@ -193,7 +192,7 @@ window.addEventListener('DOMContentLoaded', () => {
       // Convert the response data to JSON
       const data = await response.json();
       // return the data to the other function
-      console.log(data.videos);
+
       return data.videos;
     } catch (error) {
       // Log any errors that occur and re-throw them
@@ -205,7 +204,7 @@ window.addEventListener('DOMContentLoaded', () => {
   // This function creates a specified number of image elements within a container element
   async function createVideos(numVideosToAdd) {
     displayImage();
-    console.log('createVideos function executing...');
+
     // hideImage();
     // Get the container element
     const container = document.querySelector('.container');
@@ -213,7 +212,7 @@ window.addEventListener('DOMContentLoaded', () => {
     const page = Math.ceil(container.children.length / numVideosToAdd) + 1;
     // Fetch the specified number of images for the current page
     const vidSrcArr = await fetchVideos(numVideosToAdd, page);
-    console.log('vidSrcArr:', vidSrcArr);
+
     // If there is no valid data returned or it is not an array, log an error and exit the function
     if (!vidSrcArr || !Array.isArray(vidSrcArr)) {
       console.error('Invalid Video data');
@@ -221,7 +220,6 @@ window.addEventListener('DOMContentLoaded', () => {
     }
     // Add each image to the container element
     vidSrcArr.forEach((vidSrc) => {
-      console.log('adding video to container:', vidSrc);
       // Create a container div for the image
       const vidContainer = document.createElement('div');
       vidContainer.classList.add('vid-container');
@@ -250,9 +248,7 @@ window.addEventListener('DOMContentLoaded', () => {
       h1.className = 'photographer';
       // Once the image is loaded, append it to the container element
       vid.addEventListener('loadeddata', () => {
-        console.log('before added');
         container.appendChild(vidContainer);
-        console.log('added vidContainer to container');
       });
 
       vid.addEventListener('mouseover', () => {
